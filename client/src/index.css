@@ -653,6 +653,12 @@ textarea.form-control {
   text-align: center;
 }
 
+.watermark {
+  padding-top: 9px;
+  font-size: 10px;
+  text-align: center;
+}
+
 /* ---------- Modal ---------- */
 .modal-backdrop {
   position: fixed;

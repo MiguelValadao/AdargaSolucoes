@@ -36,7 +36,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          © {new Date().getFullYear()} ADARGA Soluções — Todos os direitos reservados.
+          © {new Date().getFullYear()} ADARGA Soluções — Todos os direitos reservados. 
+        </div>
+        <div className="watermark">
+          Website developed by {"Miguel Teixeira Valadao"}
         </div>
       </div>
     </footer>
