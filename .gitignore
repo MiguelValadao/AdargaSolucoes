@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+client/.env
+*.log
+server/uploads/
+docker-compose.override.yml
+.env.example
+supabase/migration.sql
+docker-compose.yml

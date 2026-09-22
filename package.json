@@ -1,0 +1,11 @@
+{
+  "name": "adarga-solucoes",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Site ADARGA Soluções - frontend React + Supabase",
+  "scripts": {
+    "install:client": "npm --prefix client install",
+    "dev": "npm --prefix client run dev",
+    "build": "npm --prefix client run build"
+  }
+}
