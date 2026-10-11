@@ -87,6 +87,19 @@ export const Api = {
     return { lead: data, whatsapp: WHATSAPP_NUMBER };
   },
 
+  sendContactEmail: async (lead: LeadInput & { veiculo?: string }) => {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(lead),
+    });
+
+    if (!response.ok) {
+      const body = await response.json().catch(() => null);
+      throw new Error(body?.error || "Não foi possível enviar o e-mail.");
+    }
+  },
+
   listLeads: async () => {
     const { data, error } = await supabase
       .from("leads")

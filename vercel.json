@@ -8,9 +8,18 @@
     "server": {
       "root": "server",
       "framework": "express"
+    },
+    "mailer": {
+      "root": "mailer"
     }
   },
   "rewrites": [
+    {
+      "source": "/api/contact",
+      "destination": {
+        "service": "mailer"
+      }
+    },
     {
       "source": "/api/(.*)",
       "destination": {

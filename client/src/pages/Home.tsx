@@ -84,7 +84,18 @@ export function ConsultancyForm() {
     <form onSubmit={async (e) => {
       e.preventDefault(); const form = new FormData(e.currentTarget);
       try {
-        const data = await Api.createLead({ nome: String(form.get("nome") || ""), email: String(form.get("email") || ""), telefone: String(form.get("telefone") || ""), mensagem: String(form.get("mensagem") || "") || "Quero consultoria para compra de veículo." });
+        const lead = {
+          nome: String(form.get("nome") || ""),
+          email: String(form.get("email") || ""),
+          telefone: String(form.get("telefone") || ""),
+          mensagem: String(form.get("mensagem") || "") || "Quero consultoria para compra de veículo.",
+        };
+        const data = await Api.createLead(lead);
+        try {
+          await Api.sendContactEmail(lead);
+        } catch (emailError) {
+          console.error("Contact email notification failed:", emailError);
+        }
         window.open(waLink(data.whatsapp, `Olá, ADARGA Soluções! Meu nome é ${form.get("nome")}.
 Quero uma consultoria para compra de veículo.
 E-mail: ${form.get("email")}
