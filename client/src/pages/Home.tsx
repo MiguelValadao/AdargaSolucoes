@@ -36,17 +36,20 @@ export default function Home() {
 
   const destaque = cars.filter((c) => c.destaque).slice(0, 3);
   const outros = cars.filter((c) => !c.destaque).slice(0, 3);
+  const heroCar = destaque[0];
 
   return (
     <>
-      <section className="hero">
-        <div className="container hero-grid">
-          <div>
-            <span className="kicker" style={{ color: "var(--gold-500)" }}>
+      <section className="hero hero--showcase">
+        <div className="container hero-showcase">
+          <div className="hero-copy">
+            <span className="kicker">
               Para empresas &amp; frotas
             </span>
             <h1>
-              Carros para sua empresa, com <span>consultoria</span> de ponta a ponta.
+              A frota certa<br />
+              <em>para o próximo</em><br />
+              passo do seu negócio.
             </h1>
             <p>
               A ADARGA Soluções atua no mercado automotivo e de consórcios oferecendo
@@ -80,6 +83,25 @@ export default function Home() {
               <strong>Frota</strong>
               <span>Compra assistida</span>
             </div>
+          </div>
+          <div className="hero-art" aria-label="Veículos selecionados para empresas">
+            <div className="hero-stripe hero-stripe--one" />
+            <div className="hero-stripe hero-stripe--two" />
+            <div className="hero-stripe hero-stripe--three" />
+            <span className="hero-display" aria-hidden="true">ADARGA</span>
+            <div className="hero-art-label">
+              <span>Seleção corporativa</span>
+              <strong>2026</strong>
+            </div>
+            <figure className="hero-vehicle">
+              <img
+                src={heroCar?.imagem_url || "/images/Foto1.jpg"}
+                alt={heroCar ? `${heroCar.marca} ${heroCar.modelo}` : "Veículo para empresas"}
+              />
+              <figcaption>
+                {heroCar ? `${heroCar.marca} ${heroCar.modelo}` : "Compra assistida para a sua frota"}
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>

@@ -17,11 +17,7 @@ export default function Navbar() {
           <Link to="/#consultoria">Consultoria</Link>
           <Link to="/sobre">Sobre nós</Link>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Link to="/catalogo" className="btn btn-gold">
-            Ver carros
-          </Link>
-        </div>
+        <Link to="/catalogo" className="nav-cta">Ver carros <span>↗</span></Link>
       </div>
     </nav>
   );
